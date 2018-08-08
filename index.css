@@ -3,6 +3,7 @@ body {
   background: #000;
 }
 
+<<<<<<< HEAD
 #videobox {
   position: absolute;
   top: 10px; left: 10px;
@@ -20,4 +21,9 @@ body {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
+=======
+#video {
+  display: block;
+  width: 100%;
+>>>>>>> 1a08bcec48ad41866e65501afb982225df0974bf
 }
