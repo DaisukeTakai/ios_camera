@@ -9,8 +9,7 @@
         }
         body {
           margin: 0 auto;
-          width: 300px;
-          height: 90%;
+          width: 80%;
         }
         video {
           margin: auto;
@@ -24,7 +23,7 @@
           height: 600px;
           object-fit: fill;
         }
-        .button_wrapper {
+        .center {
           text-align:center;
         }
         input#cap_button {
@@ -34,13 +33,15 @@
           color: white;
           border-style: none;
         }
-
     </style>
   </head>
   <body>
+    <div class="center">
     <video id="video" autoplay playsinline="true"></video>
-    <button onClick="cap()">キャプチャ</button>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas"></canvas><br>
+    <input id="cap_button" type="button" value="キャブチャ" onclick="cap()">
+    <input id="cap_button" type="button" value="取り込み" onclick="capture()">
+
     <script>
     var video = document.getElementById('video');
     var constraints = {
@@ -72,10 +73,6 @@
     }
 
     </script>
-
-    <div class="button_wrapper">
-      <input id="cap_button" type="button" value="取り込み" onclick="capture()">
-    </div>
 
     <script>
       function capture() {
