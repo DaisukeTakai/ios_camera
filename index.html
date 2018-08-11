@@ -2,16 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>browserCamamera sample</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>browserCamamera</title>
     <style>
         html {
-            height: 100%;
+          height: 100%;
         }
         body {
-        margin: 0 auto;
-        width: 200px;
-        height: 600px;
+          margin: 0 auto;
+          width: 200px;
+          height: 600px;
         }
 
         video {
@@ -19,6 +18,17 @@
           width: 100%;
           height: 100%;
           object-fit: fill;
+        }
+        .button_wrapper {
+          text-align:center;
+        }
+
+        input#cap_button {
+          padding: 15px 30px;
+          font-size: 1.2em;
+          background-color: steelblue;
+          color: white;
+          border-style: none;
         }
 
     </style>
@@ -43,5 +53,16 @@
             window.alert(err.name + ': ' + err.message);
         });
     </script>
+
+    <div class="button_wrapper">
+      <input id="cap_button" type="button" value="取り込み" onclick="capture()">
+    </div>
+
+    <script>
+      function capture() {
+        alert("テスト");
+      }
+    </script>
+
   </body>
 </html>
