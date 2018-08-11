@@ -9,18 +9,18 @@
         }
         body {
           margin: 0 auto;
-          width: 80%;
+          width: 100%;
         }
         video {
           margin: auto;
-          width: 300px;
-          height: 600px;
+          width: 90px;
+          height: 900px;
           object-fit: fill;
         }
         canvas {
           margin: auto;
-          width: 300px;
-          height: 600px;
+          width: 90px;
+          height: 900px;
           object-fit: fill;
         }
         .center {
@@ -38,9 +38,10 @@
   <body>
     <div class="center">
     <video id="video" autoplay playsinline="true"></video>
-    <canvas id="canvas"></canvas><br>
+    <canvas id="canvas"></canvas>
+    <img id="image"></img><br>
     <input id="cap_button" type="button" value="キャブチャ" onclick="cap()">
-    <input id="cap_button" type="button" value="取り込み" onclick="capture()">
+    <input id="cap_button" type="button" value="取り込み" onclick="read_in()">
 
     <script>
     var video = document.getElementById('video');
@@ -66,17 +67,19 @@
 
       var w = video.videoWidth;
       var h = video.videoHeight;
-      canvas.setAttribute("width", h/2);
+      canvas.setAttribute("width", h/10);
       canvas.setAttribute("height", h);
 
-      var ctx = canvas.getContext("2d").drawImage(video,w/2-h/4,0,h/2,h,0,0,h/2,h);
+      var ctx = canvas.getContext("2d").drawImage(video,w/2-h/20,0,h/10,h,0,0,h/10,h);
     }
 
     </script>
 
     <script>
-      function capture() {
-        alert("テスト");
+      function read_in() {
+        var dataUrl = canvas.toDataURL("image/png");
+        var image = document.getElementById("image");
+        image.src = dataUrl
       }
     </script>
 
