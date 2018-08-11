@@ -9,21 +9,24 @@
         }
         body {
           margin: 0 auto;
-          width: 200px;
+          width: 300px;
           height: 90%;
         }
-
         video {
           margin: auto;
-          width: 100%;
-          height: 100%;
+          width: 300px;
+          height: 600px;
           object-fit: fill;
         }
-
+        canvas {
+          margin: auto;
+          width: 300px;
+          height: 600px;
+          object-fit: fill;
+        }
         .button_wrapper {
           text-align:center;
         }
-
         input#cap_button {
           padding: 15px 30px;
           font-size: 1.2em;
@@ -36,15 +39,18 @@
   </head>
   <body>
     <video id="video" autoplay playsinline="true"></video>
+    <button onClick="cap()">キャプチャ</button>
+    <canvas id="canvas"></canvas>
     <script>
     var video = document.getElementById('video');
     var constraints = {
-        audio: false,
-        video: {
-            // スマホのバックカメラを使用
-            facingMode: 'environment'
-        }
+      audio: false,
+      video: {
+        // スマホのバックカメラを使用
+        facingMode: 'environment'
+      }
     };
+
     //  カメラの映像を取得
     navigator.mediaDevices.getUserMedia(constraints)
         .then((stream) => {
@@ -53,6 +59,18 @@
         .catch((err) => {
             window.alert(err.name + ': ' + err.message);
         });
+
+    function cap() {
+      var canvas = document.getElementById("canvas");
+
+      var w = video.videoWidth;
+      var h = video.videoHeight;
+      canvas.setAttribute("width", h/2);
+      canvas.setAttribute("height", h);
+
+      var ctx = canvas.getContext("2d").drawImage(video,w/2-h/4,0,h/2,h,0,0,h/2,h);
+    }
+
     </script>
 
     <div class="button_wrapper">
